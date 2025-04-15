@@ -4,7 +4,7 @@ from glob import glob
 import re
 
 # Caminho da pasta onde estão os arquivos CSV
-pasta_dados = r"C:\Users\Alane Souza\Downloads\OneDrive_1_11-04-2025"
+pasta_dados = r"C:\Users\Alane Souza\Bases Ocupação Semanal"
 
 # Lista todos os arquivos CSV na pasta
 arquivos_csv = sorted(glob(os.path.join(pasta_dados, "*.csv")))

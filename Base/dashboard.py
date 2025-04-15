@@ -40,6 +40,13 @@ st.markdown(
 # Título do Dashboard
 st.title("Dashboard Resumo de Ocupação")
 
+# Exibir o intervalo de datas da base
+datas_validas = pd.to_datetime(df_base["Nome Da Origem"], format="%d/%m/%Y", errors="coerce").dropna()
+data_min = datas_validas.min()
+data_max = datas_validas.max()
+
+if pd.notnull(data_min) and pd.notnull(data_max):
+    st.markdown(f"**Período dos dados:** de {data_min.strftime('%d/%m/%Y')} a {data_max.strftime('%d/%m/%Y')}")
 
 st.markdown(
     """
@@ -119,8 +126,7 @@ df_tabela["Ocupação (%)"] = df_tabela["Ocupação (%)"].map(lambda x: f"{x:.2f
 
 # Exiba a tabela
 st.dataframe(df_tabela)
-
-    
+ 
 
 # --- Gráfico de Linhas para Evolução da Ocupação ---
 st.subheader("Evolução da Ocupação")
